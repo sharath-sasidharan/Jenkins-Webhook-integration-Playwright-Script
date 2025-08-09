@@ -40,6 +40,7 @@ test("Auto Sugesstion dropdown - flipkart", async ({ page }) => {
 
   for (let i = 0; i < count; i++) {
     const suggestionText = await suggestions.nth(i).locator("a").textContent();
+    console.log(suggestionText, "===");
     if (suggestionText?.includes("wild stone perfume")) {
       await suggestions.nth(i).locator("a").click();
       break;
