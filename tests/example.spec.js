@@ -19,3 +19,10 @@ test("get started link @dev", async ({ page }) => {
     page.getByRole("heading", { name: "Installation" })
   ).toBeVisible();
 });
+
+test("frames handling", async ({ page }) => {
+  await page.goto("https://ui.vision/demo/webtest/frames/");
+
+  const frame = page.frameLocator('frame[src*="frame_3.html"]');
+  await frame.locator('input[name*="mytext3"]').fill("great");
+});
